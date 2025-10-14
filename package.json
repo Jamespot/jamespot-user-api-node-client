@@ -1,0 +1,31 @@
+{
+  "name": "juserapiclientsample",
+  "version": "1.0.0",
+  "main": "dist/example.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/example.ts",
+    "start:simple": "ts-node src/simple-example.ts",
+    "start:debug": "DEBUG=true ts-node src/example.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jamespot",
+    "api",
+    "client",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Sample Node.js client for jamespot-user-api",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "jamespot-user-api": "^1.0.183",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
