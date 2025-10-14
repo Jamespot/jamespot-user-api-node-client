@@ -50,7 +50,7 @@ cp .env.example .env
 Edit `.env`:
 ```env
 JAMESPOT_URL=https://your-jamespot-instance.com
-JAMESPOT_USERNAME=your-username
+JAMESPOT_EMAIL=your-email
 JAMESPOT_PASSWORD=your-password
 DEBUG=false
 ```
