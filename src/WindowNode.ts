@@ -30,9 +30,20 @@ export class WindowNode implements WindowInterface {
     }
 
     public async fetch<T>(url: string, init?: RequestInit): FetchReturnType<T> {
-        let headers: HeadersInit = {
-            referer: this.referer,
-        };
+
+        if (this.debug) {
+            console.log('Fetch : ' + url, init);
+        }
+        let headers: Record<string,string>;
+        
+        if (init && init.headers) {
+            headers = init.headers as Record<string, string>;
+            delete init.headers;
+        } else {
+            headers = {};
+        }
+
+        headers.referer = this.referer;
 
         // Manually add cookie if user has previously logged in
         if (this.cookie != null) {
@@ -45,7 +56,6 @@ export class WindowNode implements WindowInterface {
             } else {
                 console.log('No Cookie ');
             }
-            console.log('Fetch : ' + url, init);
         }
 
         return fetch(url, {
