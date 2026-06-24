@@ -3,10 +3,8 @@
  */
 
 import fetch, { HeadersInit, RequestInit as NodeRequestInit } from 'node-fetch';
-
-export type FetchResponseType<T> = { json: () => Promise<T> };
+export type FetchResponseType<T> = ReturnType<typeof fetch> & { json: () => Promise<T> };
 export type FetchReturnType<T> = Promise<FetchResponseType<T>>;
-
 export interface WindowInterface {
     getBackendUrl: () => Promise<string>;
     fetch: <T>(url: string, init?: RequestInit) => FetchReturnType<T>;
